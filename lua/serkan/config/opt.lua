@@ -15,7 +15,7 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 8
 vim.opt.colorcolumn ="200"
 
-vim.cmd [[cnoreabbrev w update]]
+-- vim.cmd [[cnoreabbrev w update]]
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "yaml" },
