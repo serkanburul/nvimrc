@@ -1,6 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
+    tag = '0.1.9',
     dependencies = {
         'nvim-lua/plenary.nvim'
     },
@@ -19,7 +19,9 @@ return {
                 mappings = {
                     n = {
                         ["t"] = require("telescope.actions").select_tab,
+                        ["v"] = require("telescope.actions").file_vsplit,
                         ["<C-t>"] = false,
+                        ["<C-v>"] = false
                     }
                 }
             }

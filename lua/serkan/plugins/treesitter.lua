@@ -6,7 +6,7 @@ return {
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
                     "vimdoc", "javascript", "c", "lua",
-                    "jsdoc", "bash", "go", "python", "html", "c_sharp"
+                    "jsdoc", "bash", "go", "python", "html",
                 },
                 sync_install = false,
                 auto_install = true,
@@ -24,8 +24,5 @@ return {
         event = "InsertEnter",
         opts = {},
         dependencies = { "nvim-treesitter/nvim-treesitter" },
-        config = function ()
-            require("nvim-ts-autotag").setup()
-        end
     },
 }
