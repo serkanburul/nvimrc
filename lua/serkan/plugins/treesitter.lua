@@ -1,29 +1,31 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false, -- main branch lazy-loading desteklemiyor
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "vimdoc", "javascript", "c", "lua",
-                    "jsdoc", "bash", "go", "python", "html",
-                },
-                sync_install = false,
-                auto_install = true,
-                indent = { enable = true },
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = { "markdown" },
-                },
+            local ts = require("nvim-treesitter")
+            ts.setup()
+
+            local langs = {
+                "vimdoc", "javascript", "c", "lua",
+                "jsdoc", "bash", "go", "python", "html",
+            }
+            ts.install(langs)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = langs,
+                callback = function()
+                    vim.treesitter.start()
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
             })
-        end
+        end,
     },
     {
         "windwp/nvim-ts-autotag",
         event = "InsertEnter",
-        config = function ()
-            require('nvim-ts-autotag').setup()
-        end,
         opts = {},
         dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
