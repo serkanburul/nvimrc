@@ -24,3 +24,5 @@ vim.keymap.set(
     "<leader>q",
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
+
+vim.keymap.set('n', '<Up>', '/', { noremap = true, desc = "Arama modunu başlat" })
