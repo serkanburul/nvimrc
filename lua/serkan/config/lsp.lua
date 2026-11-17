@@ -1,7 +1,8 @@
 vim.lsp.enable({
     "lua_ls",
     "gopls",
-    "clangd"
+    "clangd",
+    "ts_ls"
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

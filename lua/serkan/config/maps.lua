@@ -18,6 +18,7 @@ vim.keymap.set("n", "<leader>r", "<C-w>r",  opts)
 
 vim.api.nvim_set_keymap("", "<leader>n", ":tabnext<CR>", opts)
 vim.api.nvim_set_keymap("", "<leader>p", ":tabprevious<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<S-CR>", "<Nop>", { silent = true })
 
 vim.keymap.set(
     "n",

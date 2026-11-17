@@ -21,17 +21,24 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<Tab>"] = cmp.mapping.select_next_item(),
-                ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-                ["<CR>"] = cmp.mapping( function (fallback)
+                ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-k>"] = cmp.mapping.select_prev_item(),
+
+                ["<CR>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.confirm({ select = true })
-                    elseif luasnip.jumpable(1) then
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+
+                ["<S-CR>"] = cmp.mapping(function(fallback)
+                    if luasnip.jumpable(1) then
                         luasnip.jump(1)
                     else
                         fallback()
                     end
-                end, { 'i', 's' }),
+                end, { "i", "s" }),                
                 ["<C-e>"] = cmp.mapping.abort(),
             }),
             sources = cmp.config.sources({

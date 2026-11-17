@@ -9,8 +9,15 @@ return {
             ts.setup()
 
             local langs = {
-                "vimdoc", "javascript", "c", "lua",
-                "jsdoc", "bash", "go", "python", "html",
+                "vimdoc", "c", "lua",
+                "python", "bash",
+                "go", "html", 
+
+                -- JS / TS
+                "javascript",
+                "typescript",
+                "tsx",
+                "jsdoc",
             }
             ts.install(langs)
 
